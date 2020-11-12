@@ -12,18 +12,18 @@ export class UserRegistationService {
 
   public doRegistration(user) {
     console.log(user)
-    return this.http.post("http://localhost:8085/register",user);
+    return this.http.post("http://localhost:8085/api/v1/register",user);
   }
 
   public getUsers(){
-    return this.http.get("http://localhost:8085/getAllUsers");
+    return this.http.get("http://localhost:8085/api/v1/getAllUsers");
   }
 
   public getUserByEmail(email){
-    return this.http.get("http://localhost:8085/findUser/"+email);
+    return this.http.get("http://localhost:8085/api/v1/findUser/"+email);
   }
 
   public deleteUser(id){
-    return this.http.delete("http://localhost:8085/cancel/"+id);
+    return this.http.delete("http://localhost:8085/api/v1/cancel/"+id);
   }
 }

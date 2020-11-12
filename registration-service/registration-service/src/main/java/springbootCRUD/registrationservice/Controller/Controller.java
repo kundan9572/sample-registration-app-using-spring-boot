@@ -1,10 +1,12 @@
-package controller;
+package springbootCRUD.registrationservice.Controller;
+
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,15 +16,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import dao.UserRepository;
-import model.User;
+import springbootCRUD.registrationservice.Dao.UserRepository;
+import springbootCRUD.registrationservice.Model.User;
 
-//@SpringBootApplication
+
+
+
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping(path="users")
+@CrossOrigin(origins = "*")
+@RequestMapping("/api/v1/")
 
-public class RegistrationServiceApplication {
+public class Controller {
 
 	@Autowired
     private UserRepository repository;
@@ -35,8 +39,8 @@ public class RegistrationServiceApplication {
         repository.save(user);
         return "Hi " + user.getName() + " your Registration process successfully completed";
     }
-    
-    @GetMapping(value= "/getAllUsers")
+  
+    @GetMapping("/getAllUsers")
     public List<User> findAllUsers() {
         return repository.findAll();
     }
@@ -51,5 +55,7 @@ public class RegistrationServiceApplication {
         repository.deleteById(id);
         return repository.findAll();
     }
+    
+    
 
 }

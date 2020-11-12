@@ -11,7 +11,7 @@ import { UserRegistationService } from '../user-registation.service';
 export class RegistrationComponent implements OnInit {
 
   user: any=new User("","",0,"");
-  //user: User;
+  
   message:any;
 
   constructor(private service:UserRegistationService) { }

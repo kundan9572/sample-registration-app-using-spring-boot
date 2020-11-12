@@ -1,4 +1,5 @@
-package model;
+package springbootCRUD.registrationservice.Model;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
